@@ -23,12 +23,18 @@
 \section{The efficiency of different iterative methods for solving a linear system}
 \begin{enumerate}[(a)] 
 \item 
-We'll first import relevant package, and define $A$.\\
+Following are the implementation for the four methods:\\
+\textbf{Jacobi:}
+\begin{tcolorbox}
+\importandtypeset{part_1_jacobi}
+\end{tcolorbox}
+\textbf{Gauss-Seidel:}
+\begin{tcolorbox}
+\importandtypeset{part_1_gauss_seidel}
+\end{tcolorbox}
 \begin{tcolorbox}
 \begin{pyblock}
 import numpy as np
-from numpy import linalg as LA
-
 A = np.array([[1, 2, 3, 4],
               [2, 4, -4, 8]])
 print(A)
@@ -37,10 +43,10 @@ print(A)
 \begin{tcolorbox}
 \printpythontex
 \end{tcolorbox}
-\begin{tcolorbox}
-\importandtypeset{test}
-\end{tcolorbox}
 \item t
+\begin{tcolorbox}
+\importandtypeset{part_1_b}
+\end{tcolorbox}
 \end{enumerate}
 \section{Convergence properties}
 \begin{enumerate}[(a)] 
