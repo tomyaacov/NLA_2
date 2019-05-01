@@ -25,30 +25,24 @@ convergence_factor = dict()
 for alg_res in res:
     convergence_factor[alg_res] = res[alg_res][1:] / res[alg_res][:-1]
 
+plt.figure()
 for alg_res in res:
     plt.semilogy(res[alg_res], label=alg_res)
 plt.legend()
 plt.xlabel("Iteration")
 plt.ylabel("Residual Vector Norm")
-plt.show()
 
-# # Save the plot as a PDF file
-# plt.savefig("myplot1.pdf", bbox_inches="tight")
-# # Include the plot in the current LaTeX document
-# print(r"\begin{center}")
-# print(r"\includegraphics[width=0.85\textwidth]{myplot1.pdf}")
-# print(r"\end{center}")
+# Save the plot as .pdf and include it in the .tex document
+plt.savefig("myplot1.pdf", bbox_inches="tight")
+print(r"\saveandshowplot{myplot1.pdf}")
 
+plt.figure()
 for alg_con in convergence_factor:
     plt.semilogy(convergence_factor[alg_con], label=alg_con)
 plt.legend()
 plt.xlabel("Iteration")
 plt.ylabel("Convergence Factor")
-plt.show()
 
-# # Save the plot as a PDF file
-# plt.savefig("myplot2.pdf", bbox_inches="tight")
-# # Include the plot in the current LaTeX document
-# print(r"\begin{center}")
-# print(r"\includegraphics[width=0.85\textwidth]{myplot2.pdf}")
-# print(r"\end{center}")
+# Save the plot as .pdf and include it in the .tex document
+plt.savefig("myplot2.pdf", bbox_inches="tight")
+print(r"\saveandshowplot{myplot2.pdf}")

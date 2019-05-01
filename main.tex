@@ -7,13 +7,19 @@
 
 \usepackage[shortlabels]{enumitem}
 \usepackage{pythontex}
-\usepackage{tcolorbox}
+\usepackage[most]{tcolorbox}
 \usepackage{amsmath,amsthm,amssymb}
 
 \newcommand{\importandtypeset}[1]{
   %\pyc{print(12);add_to_path('py_files'); from #1 import *; pytex.add_dependencies(os.path.join('py_files', '#1.py'))}%
   \inputpygments{python}{py_files/#1.py}%
   \pyc{from py_files import #1}
+}
+
+\newcommand{\saveandshowplot}[1]{
+  \begin{center}
+  \includegraphics[width=0.85\textwidth]{#1}
+  \end{center}
 }
 
 \begin{document}
@@ -32,19 +38,15 @@ Following are the implementation for the four methods:\\
 \begin{tcolorbox}
 \importandtypeset{part_1_gauss_seidel}
 \end{tcolorbox}
-\begin{tcolorbox}
-\begin{pyblock}
-import numpy as np
-A = np.array([[1, 2, 3, 4],
-              [2, 4, -4, 8]])
-print(A)
-\end{pyblock}
-\end{tcolorbox}
-\begin{tcolorbox}
-\printpythontex
-\end{tcolorbox}
-\item t
-\begin{tcolorbox}
+\item Following are the system and parameters definition, methods calls, residual vector norm and convergence factor plotting:
+\begin{tcolorbox}[%
+    enhanced, 
+    breakable,
+    frame hidden,
+    overlay broken = {
+        \draw[line width=0.5mm, black, rounded corners]
+        (frame.north west) rectangle (frame.south east);},
+    ]{}
 \importandtypeset{part_1_b}
 \end{tcolorbox}
 \end{enumerate}
