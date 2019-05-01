@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Home assignment 2}
+\author{Numerical Optimization and its Applications - Spring 2019\\Gil Ben Shalom, 301908877\\Tom Yaacov, 305578239}
+\date{\today}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{pythontex}
+\usepackage{tcolorbox}
+\usepackage{amsmath,amsthm,amssymb}
+
+\newcommand{\importandtypeset}[1]{
+  %\pyc{print(12);add_to_path('py_files'); from #1 import *; pytex.add_dependencies(os.path.join('py_files', '#1.py'))}%
+  \inputpygments{python}{py_files/#1.py}%
+  \pyc{from py_files import #1}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{The efficiency of different iterative methods for solving a linear system}
+\begin{enumerate}[(a)] 
+\item 
+We'll first import relevant package, and define $A$.\\
+\begin{tcolorbox}
+\begin{pyblock}
+import numpy as np
+from numpy import linalg as LA
+
+A = np.array([[1, 2, 3, 4],
+              [2, 4, -4, 8]])
+print(A)
+\end{pyblock}
+\end{tcolorbox}
+\begin{tcolorbox}
+\printpythontex
+\end{tcolorbox}
+\begin{tcolorbox}
+\importandtypeset{test}
+\end{tcolorbox}
+\item t
+\end{enumerate}
+\section{Convergence properties}
+\begin{enumerate}[(a)] 
+\item t
+\item t
+\item t
+\end{enumerate}
+\section{GMRES(1) method}
+\begin{enumerate}[(a)] 
+\item t
+\item t
+\item t
+\item t
+\item t
+\end{enumerate}
+\section{Convexity}
+\begin{enumerate}[(a)] 
+\item t
+\item t
+\item t
+\end{enumerate}
+\section{Non Linear Optimization}
+\begin{enumerate}[(a)] 
+\item t
+\item t
+\item t
+\end{enumerate}
+\end{document}
