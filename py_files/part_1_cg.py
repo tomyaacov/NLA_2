@@ -10,14 +10,14 @@ def conjugate_gradient(A, b, x_0, max_iter, epsilon):
     x = copy(x_0)
     r = b - matmul(A, x)
     p = r
-    all_r = [r]
+    all_r = [norm(r)]
     for k in range(max_iter):
         alph = dot(r, p) / dot(p, matmul(A, p))
         x = x + alph * p
         # res.append(norm(matmul(A, x) - b))
         r_prev = copy(r)
         r = b - matmul(A, x)
-        all_r.append(r)
+        all_r.append(norm(r))
         if norm(r) / norm(b) < epsilon:
             break
         beta = dot(r, r) / dot(r_prev, r_prev)
