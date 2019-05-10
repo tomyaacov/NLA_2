@@ -3,6 +3,8 @@ from scipy.sparse import spdiags
 import matplotlib.pyplot as plt
 from py_files.part_1_gauss_seidel import weighted_gauss_seidel
 from py_files.part_1_jacobi import weighted_jacobi
+from py_files.part_1_sd import steepest_decent
+from py_files.part_1_cg import conjugate_gradient
 
 n = 100
 # TODO: not sure if .toarray() is the right approach
@@ -20,6 +22,10 @@ x, res['weighted_jacobi_0_75'] = weighted_jacobi(A, b, x_0, maxIter, epsilon, 0.
 #print('weighted_jacobi_0_75 result:', x)
 x, res['weighted_gauss_seidel_1'] = weighted_gauss_seidel(A, b, x_0, maxIter, epsilon, 1)
 #print('weighted_gauss_seidel_1 result:', x)
+x, res['steepest_decent'] = steepest_decent(A, b, x_0, maxIter, epsilon)
+#print('steepest_decent result:', x)
+x, res['conjugate_gradient'] = conjugate_gradient(A, b, x_0, maxIter, epsilon)
+#print('conjugate_gradient result:', x)
 
 convergence_factor = dict()
 for alg_res in res:

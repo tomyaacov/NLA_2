@@ -1,6 +1,6 @@
 from numpy import matmul, array, dot, copy
 from numpy.linalg import norm
-from utils import is_pos_def
+from py_files.utils import is_pos_def
 
 
 def conjugate_gradient(A, b, x_0, max_iter, epsilon):
