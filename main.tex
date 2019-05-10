@@ -49,6 +49,7 @@ Following are the implementation for the four methods:\\
 \importandtypeset{part_1_cg}
 \end{tcolorbox}
 \item Following are the system and parameters definition, methods calls, residual vector norm and convergence factor plotting:
+\begin{scriptsize}
 \begin{tcolorbox}[%
     enhanced, 
     breakable,
@@ -59,6 +60,7 @@ Following are the implementation for the four methods:\\
     ]{}
 \importandtypeset{part_1_b}
 \end{tcolorbox}
+\end{scriptsize}
 \end{enumerate}
 \section{Convergence properties}
 \begin{enumerate}[(a)] 
@@ -143,7 +145,19 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
 \[\Rightarrow \alpha_{opt} = \frac{(\mathbf{r}^{(k)})^TA\mathbf{r}^{(k)}}{(A\mathbf{r}^{(k)})^TA\mathbf{r}^{(k)}}  =  \frac{(\mathbf{r}^{(k)})^TA\mathbf{r}^{(k)}}{(\mathbf{r}^{(k)})^TA^TA\mathbf{r}^{(k)}} \]
 
 \item (non-mandatory)
-\item t
+\item a:
+\begin{scriptsize}
+\begin{tcolorbox}[%
+    enhanced, 
+    breakable,
+    frame hidden,
+    overlay broken = {
+        \draw[line width=0.5mm, black, rounded corners]
+        (frame.north west) rectangle (frame.south east);},
+    ]{}
+\importandtypeset{part_3}
+\end{tcolorbox}
+\end{scriptsize}
 \item t
 \item t
 \end{enumerate}
