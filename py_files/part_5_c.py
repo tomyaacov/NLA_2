@@ -1,9 +1,5 @@
-from numpy import matmul, array, dot, copy, asarray, mean, round, eye
-from numpy.linalg import norm, inv
-from numpy.random import rand
-from mnist import MNIST
-import matplotlib.pyplot as plt
-from py_files.utils import is_pos_def
+from numpy import matmul, copy, mean, round, eye
+from numpy.linalg import inv
 from py_files.part_5_a import reg_obj_grad_hes, sigmoid
 
 
@@ -24,7 +20,7 @@ def newton(X, y, w_0, max_iter, epsilon):
     f = []
     for _ in range(max_iter):
         obj, grad, hes = reg_obj_grad_hes(X, y, w)
-        w = w - matmul(inv(hes+eye(hes.shape[0])*epsilon), grad)
+        w = w - matmul(inv(hes+eye(hes.shape[0])), grad)
         f.append(obj)
         if len(f) > 1 and f[-2] - obj < epsilon:
             break

@@ -21,28 +21,3 @@ X = np.array([[1, 0, 1], [0, 1, 1]])
 y = np.array([0, 1])
 w = np.array([1, 1, 0])
 print(reg_obj_grad_hes(X.T, y, w))
-
-def gradient_test(iterations=10):
-    X = np.array([[1, 0, 1], [0, 1, 1]])
-    labels = np.array([0, 1])
-    w = np.array([1, 1, 0], dtype=np.float64)
-    d = np.random.rand(w.shape[0])
-    d = d/d.sum()
-
-    res1 = []
-    res2 = []
-
-    classifier_x = LogisticRegression(samples=X, labels=labels, w=w)
-    loss_0 = classifier_x.loss()
-    grad_0 = classifier_x.gradient_logistic_regression()
-
-    for _ in range(iterations):
-        epsilon = 1
-        w_i = w + (epsilon * d)
-        classifier = LogisticRegression(samples=X, labels=labels, w=w_i)
-        loss = classifier.loss()
-        res1.append(abs(loss - loss_0))
-        res2.append(abs(loss - loss_0 - epsilon*np.dot(d.T,grad_0)))
-        epsilon *= 0.5
-
-    return res1, res2

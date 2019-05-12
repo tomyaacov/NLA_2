@@ -1,9 +1,7 @@
-from numpy import matmul, array, dot, copy, asarray, sum
-from numpy.linalg import norm, inv
+from numpy import asarray
 from numpy.random import rand
 from mnist import MNIST
 import matplotlib.pyplot as plt
-from py_files.utils import is_pos_def
 from py_files.part_5_c import steepest_decent, newton, accuracy
 
 # loading data
@@ -21,10 +19,9 @@ except FileNotFoundError:
     images_test, labels_test = mndata.load_testing()
 
 # parameters definition
-max_population = 30000
-max_iter = 5 # TODO: change back to 1000
-epsilon = 1e-2
-alph = 1e-1
+max_iter = 1000
+epsilon = 1e-4
+alph = 0.05
 
 # 0/1
 
@@ -50,14 +47,14 @@ w_sd, f_sd = steepest_decent(X_train, y_train, w_0, max_iter, epsilon, alph)
 w_n, f_n = newton(X_train, y_train, w_0, max_iter, epsilon)
 
 # computing sd accuracy
-print(r"Steepest Decent Accuracy:")
-print(r"Train:", accuracy(X_train, y_train, w_sd))
-print(r"Test:", accuracy(X_test, y_test, w_sd))
+print(r"Steepest Decent Accuracy:\\")
+print(r"Train:", accuracy(X_train, y_train, w_sd), r"\\")
+print(r"Test:", accuracy(X_test, y_test, w_sd), r"\\")
 
 # computing newton accuracy
-print(r"Newton Accuracy:")
-print(r"Train:", accuracy(X_train, y_train, w_n))
-print(r"Test:", accuracy(X_test, y_test, w_n))
+print(r"Newton Accuracy:\\")
+print(r"Train:", accuracy(X_train, y_train, w_n), r"\\")
+print(r"Test:", accuracy(X_test, y_test, w_n), r"\\")
 
 # plotting convergence history
 plt.figure()
@@ -97,14 +94,14 @@ w_sd, f_sd = steepest_decent(X_train, y_train, w_0, max_iter, epsilon, alph)
 w_n, f_n = newton(X_train, y_train, w_0, max_iter, epsilon)
 
 # computing sd accuracy
-print(r"Steepest Decent Accuracy:")
-print(r"Train:", accuracy(X_train, y_train, w_sd))
-print(r"Test:", accuracy(X_test, y_test, w_sd))
+print(r"Steepest Decent Accuracy:\\")
+print(r"Train:", accuracy(X_train, y_train, w_sd), r"\\")
+print(r"Test:", accuracy(X_test, y_test, w_sd), r"\\")
 
 # computing newton accuracy
-print(r"Newton Accuracy:")
-print(r"Train:", accuracy(X_train, y_train, w_n))
-print(r"Test:", accuracy(X_test, y_test, w_n))
+print(r"Newton Accuracy:\\")
+print(r"Train:", accuracy(X_train, y_train, w_n), r"\\")
+print(r"Test:", accuracy(X_test, y_test, w_n), r"\\")
 
 # plotting convergence history
 plt.figure()
