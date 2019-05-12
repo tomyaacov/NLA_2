@@ -24,6 +24,8 @@
 
 \newtheorem{lemma}{Lemma}
 
+\AtBeginEnvironment{tcolorbox}{\scriptsize}
+
 \begin{document}
 
 \maketitle
@@ -252,8 +254,20 @@ and combining the 2 sides, we showed that
 \end{enumerate}
 \section{Non Linear Optimization}
 \begin{enumerate}[(a)] 
-\item t
-\item t
+\item 
+Following is the implementation for the function that, given data matrix $X$ and labels, computes the logistic
+regression objective, its gradient, and its Hessian matrix:\\
+\begin{tcolorbox}
+\importandtypeset{part_5_a}
+\end{tcolorbox}
+\item Implementation of Gradient and Jacobian verification:
+\begin{tcolorbox}
+\importandtypeset{part_5_b}
+\end{tcolorbox}
+Testing our gradient and hessiam implementation"
+\begin{tcolorbox}
+\importandtypeset{part_5_b_run}
+\end{tcolorbox}
 \item t
 \end{enumerate}
 \end{document}

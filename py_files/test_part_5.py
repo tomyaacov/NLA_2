@@ -1,6 +1,7 @@
 from numpy import matmul, exp, log, asarray, outer
 from numpy.random import rand
 from mnist import MNIST
+from py_files.part_5_a import reg_obj_grad_hes
 
 mndata = MNIST('py_files/data')
 mndata.gz = True

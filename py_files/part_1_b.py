@@ -31,24 +31,22 @@ convergence_factor = dict()
 for alg_res in res:
     convergence_factor[alg_res] = res[alg_res][1:] / res[alg_res][:-1]
 
-plt.figure()
+plt.figure(figsize=(20, 25))
 for alg_res in res:
     plt.semilogy(res[alg_res], label=alg_res)
 plt.legend()
 plt.xlabel("Iteration")
 plt.ylabel("Residual Vector Norm")
 
-# Save the plot as .pdf and include it in the .tex document
 plt.savefig("myplot1.pdf", bbox_inches="tight")
 print(r"\saveandshowplot{myplot1.pdf}")
 
-plt.figure()
+plt.figure(figsize=(20, 25))
 for alg_con in convergence_factor:
     plt.semilogy(convergence_factor[alg_con], label=alg_con)
 plt.legend()
 plt.xlabel("Iteration")
 plt.ylabel("Convergence Factor")
 
-# Save the plot as .pdf and include it in the .tex document
 plt.savefig("myplot2.pdf", bbox_inches="tight")
 print(r"\saveandshowplot{myplot2.pdf}")
