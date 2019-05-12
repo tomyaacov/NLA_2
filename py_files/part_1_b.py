@@ -18,9 +18,9 @@ epsilon = 1e-6
 res = dict()
 x, res['weighted_jacobi_1'] = weighted_jacobi(A, b, x_0, maxIter, epsilon, 1)
 #print('weighted_jacobi_1 result:', x)
-x, res['weighted_jacobi_0_75'] = weighted_jacobi(A, b, x_0, maxIter, epsilon, 0.75)
+x, res['weighted_jacobi_0_75'] = weighted_jacobi(A, b, x_0, maxIter,epsilon,0.75)
 #print('weighted_jacobi_0_75 result:', x)
-x, res['weighted_gauss_seidel_1'] = weighted_gauss_seidel(A, b, x_0, maxIter, epsilon, 1)
+x,res['weighted_gauss_seidel_1']=weighted_gauss_seidel(A,b,x_0,maxIter,epsilon,1)
 #print('weighted_gauss_seidel_1 result:', x)
 x, res['steepest_decent'] = steepest_decent(A, b, x_0, maxIter, epsilon)
 #print('steepest_decent result:', x)
@@ -31,7 +31,7 @@ convergence_factor = dict()
 for alg_res in res:
     convergence_factor[alg_res] = res[alg_res][1:] / res[alg_res][:-1]
 
-plt.figure(figsize=(20, 25))
+plt.figure()
 for alg_res in res:
     plt.semilogy(res[alg_res], label=alg_res)
 plt.legend()
@@ -41,7 +41,7 @@ plt.ylabel("Residual Vector Norm")
 plt.savefig("myplot1.pdf", bbox_inches="tight")
 print(r"\saveandshowplot{myplot1.pdf}")
 
-plt.figure(figsize=(20, 25))
+plt.figure()
 for alg_con in convergence_factor:
     plt.semilogy(convergence_factor[alg_con], label=alg_con)
 plt.legend()

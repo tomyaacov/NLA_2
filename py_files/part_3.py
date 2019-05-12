@@ -12,7 +12,7 @@ def steepest_decent(A, b, x_0, max_iter, epsilon):
     r = b - matmul(A, x)
     all_r = [norm(r)]
     for k in range(max_iter):
-        alph = dot(r, matmul(A, r)) / matmul(r, matmul(transpose(A), matmul(A, r)))
+        alph = dot(r, matmul(A, r)) / matmul(r, matmul(transpose(A),matmul(A, r)))
         x = x + alph * r
         r = b - matmul(A, x)
         all_r.append(norm(r))
@@ -31,9 +31,8 @@ A = array([
 b = array([1, 1, 1, 1, 1])
 x_0 = array([0, 0, 0, 0, 0])
 x, all_r = steepest_decent(A, b, x_0, 50, 0.00000000001)
-plt.figure(figsize=(20, 25))
+
+plt.figure()
 plt.semilogy(all_r)
 plt.savefig("myplot3.pdf", bbox_inches="tight")
 print(r"\saveandshowplot{myplot3.pdf}")
-
-

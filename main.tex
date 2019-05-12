@@ -148,7 +148,6 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
 
 \item (non-mandatory)
 \item a:
-\begin{scriptsize}
 \begin{tcolorbox}[%
     enhanced, 
     breakable,
@@ -159,7 +158,6 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
     ]{}
 \importandtypeset{part_3}
 \end{tcolorbox}
-\end{scriptsize}
 \item t
 \item t
 \end{enumerate}
@@ -264,10 +262,31 @@ regression objective, its gradient, and its Hessian matrix:\\
 \begin{tcolorbox}
 \importandtypeset{part_5_b}
 \end{tcolorbox}
-Testing our gradient and hessiam implementation"
-\begin{tcolorbox}
+Testing our gradient and hessiam implementation:
+\begin{tcolorbox}[%
+    enhanced, 
+    breakable,
+    frame hidden,
+    overlay broken = {
+        \draw[line width=0.5mm, black, rounded corners]
+        (frame.north west) rectangle (frame.south east);},
+    ]{}
 \importandtypeset{part_5_b_run}
 \end{tcolorbox}
-\item t
+\item Implementation of Gradient Descent, and exact Newton methods:
+\begin{tcolorbox}
+\importandtypeset{part_5_c}
+\end{tcolorbox}
+Running over the MNIST data sets for the digits 0,1 and 8,9 and shwing the results:
+\begin{tcolorbox}[%
+    enhanced, 
+    breakable,
+    frame hidden,
+    overlay broken = {
+        \draw[line width=0.5mm, black, rounded corners]
+        (frame.north west) rectangle (frame.south east);},
+    ]{}
+\importandtypeset{part_5_c_run1}
+\end{tcolorbox}
 \end{enumerate}
 \end{document}
