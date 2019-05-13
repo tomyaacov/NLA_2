@@ -7,7 +7,6 @@ from py_files.part_1_sd import steepest_decent
 from py_files.part_1_cg import conjugate_gradient
 
 n = 100
-# TODO: not sure if .toarray() is the right approach
 A = spdiags(np.array([-np.ones(n), 2.1 * np.ones(n), -np.ones(n)]),
             np.array([-1, 0, 1]), n, n).toarray()
 x_0 = np.zeros(n)
