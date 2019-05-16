@@ -1,20 +1,14 @@
-from numpy import asarray, array
-from numpy.random import rand
-from mnist import MNIST
+from numpy import array
 import matplotlib.pyplot as plt
 from py_files.part_5_b import gradient_test_reg_obj_grad_hes
 from py_files.part_5_b import jacobian_test_reg_obj_grad_hes
 
-# loading data
-mndata = MNIST('py_files/data')
-mndata.gz = True
-images, labels = mndata.load_training()
-images = asarray(images)
-labels = asarray(labels)
-X = images[labels<=1][:1000].T
-X = X/X.max()
-y = labels[labels<=1][:1000].T
-w = rand(X.shape[0])*2-1
+# creating test example
+X = array([[1, 0],
+        [0, 1],
+        [1, 1]])
+y = array([0, 1])
+w = array([1, 1, 0])
 
 # running gradient test
 res1, res2 = gradient_test_reg_obj_grad_hes(X, y, w, 1e-1, 12)
