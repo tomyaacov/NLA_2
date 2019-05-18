@@ -126,18 +126,50 @@ and therefore,
 thus,
 \[C^{(k)} = 1- \frac{1}{2}\frac{\langle\mathbf{r}^{(k)}, A\mathbf{e}^{(k)}\rangle^2}{\langle\mathbf{r}^{(k)}, A\mathbf{r}^{(k)}\rangle f(\mathbf{x}^{(k)})}\]
 finally,
-\[C^{(k)} = 1- \frac{\langle\mathbf{r}^{(k)}, A\mathbf{e}^{(k)}\rangle^2}{\langle\mathbf{r}^{(k)}, A\mathbf{r}^{(k)}\rangle \langle \mathbf{e}^{(k)}, A\mathbf{e}^{(k)}\rangle}\]
-\item t
-\item t
+\[C^{(k)} = 1- \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle^2}{\langle\mathbf{r}^{(k)}, A\mathbf{r}^{(k)}\rangle \langle \mathbf{e}^{(k)}, A\mathbf{e}^{(k)}\rangle}\]
+\item First, we will proof that $C^{(k)} \leq 1-\frac{\lambda_{min}} {\lambda_{max}}$
+
+\[1- \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle^2}{\langle\mathbf{r}^{(k)}, A\mathbf{r}^{(k)}\rangle \langle \mathbf{e}^{(k)}, A\mathbf{e}^{(k)}\rangle}\ \leq 1-\frac{\lambda_{min}} {\lambda_{max}}\]
+
+\[
+\frac{\lambda_{min}} {\lambda_{max}} \leq \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle^2}{\langle\mathbf{r}^{(k)}, A\mathbf{r}^{(k)}\rangle \langle \mathbf{e}^{(k)}, A\mathbf{e}^{(k)}\rangle} = \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}{\langle\mathbf{r}^{(k)}, A \mathbf{r}^{(k)}\rangle} \cdot \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}{\langle\mathbf{e}^{(k)}, A\mathbf{e}^{(k)}\rangle} \leq \lambda_{min} \cdot \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}{\langle A^{-1}\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}\]
+
+\[
+=\lambda_{min} \cdot \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}{\langle \mathbf{r}^{(k)},
+A^{-1}\mathbf{r}^{(k)}\rangle}
+\]
+
+For each $\lambda_{i}$ in A we get that the corresponding eigenvalue in $A^{-1}$  is $\frac{1}{\lambda_{i}}$. Thus we get that the minimum eigenvalue for $A^{-1} = \frac{1}{\lambda_{max}}$ where $\lambda_{max}$ is with respect to A. Therefore:
+
+\[
+=\lambda_{min} \cdot \frac{\langle\mathbf{r}^{(k)}, \mathbf{r}^{(k)}\rangle}{\langle \mathbf{r}^{(k)},
+A^{-1}\mathbf{r}^{(k)}\rangle} \leq \frac{\lambda_{min}}{\lambda_{max}}
+\]
+
+Now, we will show that $1-\frac{\lambda_{min}} {\lambda_{max}} < 1\\$
+A is symmetric positive definite, Thus all eigenvalues are larger than 0 and clearly $0 < \frac{\lambda_{min}}{\lambda_{max}} \leq 1$
+\[-1 < \frac{\lambda_{min}}{\lambda_{max}}-1\]
+\[1-\frac{\lambda_{min}}{\lambda_{max}} < 1\]
+
+\item
+\[
+f(x^{k})=f(x^{0})\prod_{i=1}^{k} C^{(i)}
+\]
+Since $C^{(k)}<1$ we get that $\lim_{k \to \infty} f(\mathbf{x}^{(k)}) = 0$
+\[
+f(x^{(k)}) = |b-A \mathbf{x}^{(k)}| = |A\mathbf{x}^{*}-A \mathbf{x}^{(k)}|=|A(\mathbf{x}^{*}-\mathbf{x}^{(k)})|
+\]
+Since A is fully ranked $|A(\mathbf{x}^{*}-\mathbf{x}^{(k)})|=0$ only if $\mathbf{x}^{(k)}=\mathbf{x}^{*}$, hence $\lim_{k \to \infty} \mathbf{x}^{(k)} = \mathbf{x}^{*}$
+
 \end{enumerate}
 \end{enumerate}
 \section{GMRES(1) method}
-\begin{enumerate}[(a)] 
-\item 
+\begin{enumerate}[(a)]
+\item
 \[||\mathbf{r}^{(k+1)}||_2 =||\mathbf{b}-A\mathbf{x}^{(k+1)}||_2 \]
 we define the following scalar function $g(\alpha)$:
 \begin{align*}
-g(\alpha) &\triangleq  f(\mathbf{x}^{(k)}) + \alpha \mathbf{r}^{(k)}\\
+g(\alpha) &\triangleq  f(\mathbf{x}^{(k)} + \alpha \mathbf{r}^{(k)})\\
 &= \frac{1}{2}||\mathbf{b}-A\mathbf{x}^{(k)}-\alpha A\mathbf{r}^{(k)}||_2\\
 &= \frac{1}{2}||\mathbf{r}^{(k)}-\alpha A\mathbf{r}^{(k)}||_2\\
 &= \frac{1}{2}(\mathbf{r}^{(k)})^T\mathbf{r}^{(k)}-\alpha(\mathbf{r}^{(k)})^TA\mathbf{r}^{(k)}+\frac{1}{2}\alpha^2(A\mathbf{r}^{(k)})^TA\mathbf{r}^{(k)}
@@ -149,7 +181,7 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
 \item (non-mandatory)
 \item a:
 \begin{tcolorbox}[%
-    enhanced, 
+    enhanced,
     breakable,
     frame hidden,
     overlay broken = {
@@ -159,7 +191,17 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
 \importandtypeset{part_3}
 \end{tcolorbox}
 \item t
-\item t
+\item
+
+we define the following function $g(\alpha)$:
+\begin{align*}
+g(\alpha) &\triangleq  f(\mathbf{x}^{(k)} + R^{(k)}\vec{\alpha}^{(k)})\\
+&= \frac{1}{2}||\mathbf{b}-A(\mathbf{x}^{(k)} + R^{(k)}\vec{\alpha}^{(k)})||_2\\
+&= \frac{1}{2}||\mathbf{b}-A\mathbf{x}^{(k)}-AR^{(k)}\vec{\alpha}^{(k)}||_2\\
+&= \frac{1}{2}||\mathbf{r}^{(k)}-AR^{(k)}\vec{\alpha}^{(k)}||_2\\
+&= \frac{1}{2}(\mathbf{r}^{(k)})^T\mathbf{r}^{(k)}-(\mathbf{r}^{(k)})^TAR^{(k)}\vec{\alpha}^{(k)}+\frac{1}{2}(AR^{(k)}\vec{\alpha}^{(k)})^T(AR^{(k)}\vec{\alpha}^{(k)})
+\end{align*}
+
 \end{enumerate}
 \section{Convexity}
 \begin{enumerate}[(a)] 
