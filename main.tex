@@ -73,33 +73,46 @@ Following are the implementation for the four methods:\\
 \begin{proof}
 $A$ is symmetric positive definite matrix, thus:
 \[0 < \lambda_{min} \le \dots \le \lambda_{max}\]
-therefore, we get that:
+Therefore, we get that:
 \[\rho(I-\alpha A) = max(|1-\alpha \lambda_{min}|, |1-\alpha \lambda_{max}|)\]
-$|1-\alpha \lambda_{max}|$, then we get that:
-\[-1 < 1-\alpha \lambda_{max} < 1 \Rightarrow |1-\alpha \lambda_{max}| < 1\] 
+We will show the values of $|1-\alpha \lambda_{min}|$ and $|1-\alpha \lambda_{max}|$:
+
+\[ \alpha\lambda_{max}<2 \Rightarrow 1-\alpha\lambda_{max} > -1\]
+
+\[\alpha\lambda_{max}>0 \Rightarrow 1-\alpha\lambda_{max}<1 \]
+
+\[-1 < 1-\alpha \lambda_{max} < 1 \Rightarrow |1-\alpha \lambda_{max}| < 1\]
 And,
-\[-1 < 1-2 \frac{\lambda_{min} }{\lambda_{max} } < 1 - \alpha \lambda_{min} < 1 \Rightarrow |1-\alpha \lambda_{min}| < 1\] 
-thus,
+
+\[2\frac{\lambda_{min}}{\lambda_{max}} \leq 2 \Rightarrow -1 \leq 1-2\frac{\lambda_{min}}{\lambda_{max}} \]
+
+\[ \alpha < \frac{2}{\lambda_{max}} \Rightarrow \alpha\lambda_{min} < \frac{2\lambda_{min}}{\lambda_{max}} \Rightarrow 1-\alpha\lambda_{min}>\frac{2\lambda_{min}}{\lambda_{max}}\]
+
+\[-1 \leq 1-2 \frac{\lambda_{min} }{\lambda_{max} } < 1 - \alpha \lambda_{min} < 1 \Rightarrow |1-\alpha \lambda_{min}| < 1\]
+
+\[\alpha\lambda_{min}>0 \Rightarrow 1-\alpha\lambda_{min}<1 \]
+
+Thus,
 \[max(|1-\alpha \lambda_{min}|, |1-\alpha \lambda_{max}|) < 1\]
-so we get that:
+So we get that:
 \[\rho(I-\alpha A) < 1\]
 \end{proof}
 In our case:
 \[\alpha = \frac{1}{||A||}\]
-we know that for any induced norm:
+We know that for any induced norm:
 \[||A|| > \rho(A) = \lambda_{max}\]
-thus,
+Thus,
 \[\frac{1}{||A||} < \frac{1}{\lambda_{max}} < \frac{2}{\lambda_{max}}\]
-therefore, by \textbf{Lemma 1} we get that
-\[\rho(I-\alpha A) \le 1 \]
-and the method converges.
+Therefore, by \textbf{Lemma 1} we get that
+\[\rho(I-\alpha A) < 1 \]
+And the method converges.
 \item In the case $A$ is indefinite, we a negative eigenvalue, therefore:
 \[\rho(I-\alpha A)\ge |1-\alpha \lambda_{min}|\]
 $\lambda_{min} < 0$, by definition, therefore
 \[\rho(I-\alpha A)\ge |1-\alpha \lambda_{min}| > 1\]
-\item 
+\item
 \begin{enumerate}[label=(\roman*)]
-\item 
+\item
 \[f(\textbf{x}) = \frac{1}{2}||\textbf{x}^*-\textbf{x}||^2_A\]
 \begin{align*}
 f(\mathbf{x}^{(k)}) &=\frac{1}{2}||\mathbf{x}^*-\mathbf{x^{(k)}}||^2_A\\
