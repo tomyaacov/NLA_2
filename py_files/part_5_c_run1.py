@@ -6,18 +6,10 @@ from py_files.part_5_c import steepest_decent, newton, accuracy
 from py_files.part_5_a_helper import reg_obj
 
 # loading data
-
-
-try:
-    mndata = MNIST('py_files/data')
-    mndata.gz = True
-    images_train, labels_train = mndata.load_training()
-    images_test, labels_test = mndata.load_testing()
-except FileNotFoundError:
-    mndata = MNIST('data')
-    mndata.gz = True
-    images_train, labels_train = mndata.load_training()
-    images_test, labels_test = mndata.load_testing()
+mndata = MNIST('py_files/data')
+mndata.gz = True
+images_train, labels_train = mndata.load_training()
+images_test, labels_test = mndata.load_testing()
 
 # parameters definition
 max_iter = 1000
