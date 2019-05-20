@@ -32,8 +32,8 @@ def newton(X, y, w_0, max_iter, epsilon):
 
 
 def armijo_line_search(X, y, w, obj, grad, d, alpha, beta=0.5, c=1e-4, max_iter=100):
-    n_obj = reg_obj(X, y, w + alpha * d)
     for _ in range(max_iter):
+        n_obj = reg_obj(X, y, w + alpha * d)
         if n_obj <= obj + c * alpha * matmul(grad, d):
             return alpha
         else:

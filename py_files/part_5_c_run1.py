@@ -40,6 +40,7 @@ w_sd = steepest_decent(X_train, y_train, w_0, max_iter, alpha)
 w_n = newton(X_train, y_train, w_0, max_iter, epsilon)
 
 # computing sd accuracy
+print(r"0,1:\\")
 print(r"Steepest Decent Accuracy:\\")
 print(r"Train:", accuracy(X_train, y_train, w_sd[-1]), r"\\")
 print(r"Test:", accuracy(X_test, y_test, w_sd[-1]), r"\\")
@@ -125,10 +126,11 @@ y_test -= 8
 w_0 = rand(X_train.shape[0]) * 2 - 1
 
 # running sd an newton
-w_sd = steepest_decent(X_train, y_train, w_0, max_iter, alpha, 0.5, 1)
+w_sd = steepest_decent(X_train, y_train, w_0, max_iter, alpha)
 w_n = newton(X_train, y_train, w_0, max_iter, epsilon)
 
 # computing sd accuracy
+print(r"8,9:\\")
 print(r"Steepest Decent Accuracy:\\")
 print(r"Train:", accuracy(X_train, y_train, w_sd[-1]), r"\\")
 print(r"Test:", accuracy(X_test, y_test, w_sd[-1]), r"\\")

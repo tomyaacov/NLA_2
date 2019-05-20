@@ -37,7 +37,7 @@ print(r"\saveandshowplot{myplot1.pdf}")
 
 plt.figure()
 for alg_con in convergence_factor:
-    plt.semilogy(convergence_factor[alg_con], label=alg_con)
+    plt.semilogy(convergence_factor[alg_con], label=alg_con, linewidth=0.8)
 plt.legend()
 plt.xlabel("Iteration")
 plt.ylabel("Convergence Factor")
