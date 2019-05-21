@@ -204,7 +204,9 @@ And the minimization of $g$ with respect to $\alpha$ is done by:
     ]{}
 \importandtypeset{part_3}
 \end{tcolorbox}
-\item At each step we choose $\alpha^{(k)}$ that minimizes the expression $||r^{(k+1)}||_2$. At the "worst case", when we couldn't decrease the norm of the residuals, $\alpha^{(k)}$ can be chosen to be 0, otherwise $\alpha^{(k)}$ will be chosen such that $||r^{(k+1)}||_2 < ||r^{(k+1)}||$, thus the graph is monotone.
+\item At each step we choose $\alpha^{(k)}$ that minimizes the expression $||r^{(k+1)}||_2$. At the "worst case", when we couldn't decrease the norm of the residuals, $\alpha^{(k)}$ can be chosen to be 0, otherwise $\alpha^{(k)}$ will be chosen such that 
+\[||r^{(k+1)}||_2 < ||r^{(k)}||_2\]
+thus the graph is monotone.
 \item
 
 we define the following function $g(\alpha)$:
@@ -342,7 +344,14 @@ Testing our gradient and hessiam implementation:
 \importandtypeset{part_5_b_run}
 \end{tcolorbox}
 \item Implementation of Gradient Descent, and exact Newton methods:
-\begin{tcolorbox}
+\begin{tcolorbox}[%
+    enhanced, 
+    breakable,
+    frame hidden,
+    overlay broken = {
+        \draw[line width=0.5mm, black, rounded corners]
+        (frame.north west) rectangle (frame.south east);},
+    ]{}
 \importandtypeset{part_5_c}
 \end{tcolorbox}
 Running over the MNIST data sets for the digits 0,1 and 8,9 and showing the results:
